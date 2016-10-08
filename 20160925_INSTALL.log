@@ -1,0 +1,23 @@
+
+-------------- install virtualenv
+python -m pip install virtualenv
+virtualenv ENV_1 #virtualenv -p /usr/bin/python2.6 <path/to/new/virtualenv/>
+set-executionpolicy remotesigned # to activate the virtualenv
+./ENV_1/activate
+
+# if want to restore the Set-ExecutionPolicy
+# Set-ExecutionPolicy Restricted
+
+-------------- install django
+python27 -m pip install Django==1.7
+django-admin startproject SITE
+python27 -m pip install django mysqlclient
+python27 manage.py runserver
+
+-------------- start app
+python27 manage.py startapp polls
+python27 manage.py makemigrations polls
+python27 manage.py migrate
+
+-------------- create admin user
+python manage.py createsuperuser
